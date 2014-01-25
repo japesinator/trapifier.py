@@ -3,6 +3,12 @@ Trapifier.py
 
 This is a script for turning boring, regular sound files into CERTIFIED TRAP BANGERS by overdubbing a variety of samples.  Have you ever wished that boring old Sufjan Stevens track had about 500% more foghorn?  Consider your wish granted.
 
+Example
+-------
+
+Original: https://www.youtube.com/watch?v=W6H8WcTPnWM
+Trapified: https://soundcloud.com/japesinator/trapified
+
 Requirements
 ------------
 
