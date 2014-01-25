@@ -73,6 +73,7 @@ def overlay():
             not_done = True
 
     # Save the file as an MP3
+    print "Success!"
     output.export(outputfile, format="mp3")
 
 # Actually do things
