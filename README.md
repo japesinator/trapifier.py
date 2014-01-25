@@ -7,7 +7,8 @@ Example
 -------
 
 Original: https://www.youtube.com/watch?v=W6H8WcTPnWM
-Trapified: https://soundcloud.com/japesinator/trapified
+
+Trapified: https://soundcloud.com/japesinator/trapified  <- Temporarily taken down for plagiarism
 
 Requirements
 ------------
