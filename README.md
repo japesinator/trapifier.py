@@ -20,6 +20,15 @@ Usage
 
 Run trapifier.py <inputfile> <outputfile>, where <inputfile> is song to be converted, and <outputfile> is desired title of the created track.  You can also add --samples <directory> to use samples from that directory.
 
+TODO
+----
+
+*   Make samples context-sensitive, so they sync up better than random with the music
+
+*   Allow installation via pip
+
+*   Make things work on Windows
+
 Acknowledgements
 ----------------
 
