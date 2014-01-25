@@ -5,6 +5,7 @@ import argparse
 import os
 
 # Take command-line arguments for input and output files
+# (And maybe directory to sample from)
 parser = argparse.ArgumentParser(description="Turn boring sound files into \
                                  Real Trap Shit.")
 parser.add_argument("inputfile", metavar='inputfile',
@@ -22,9 +23,9 @@ def extension(file):
     return ext
 
 
-# Interpret the input file based on its codec
+# Turn arguments into variables
 def parse():
-    global base_track
+    # Interpret the input file based on its codec
     if extension(inputfile) == ".wav":
         base_track = pydub.AudioSegment.from_wav(inputfile)
     elif extension(inputfile) == ".mp3":
@@ -37,16 +38,20 @@ def parse():
         raise NameError("Please use a .wav, .mp3, .ogg, or .flv file as input")
 
     # Check if we're using custom samples
-    global sample_dir
     if args.samples:
         sample_dir = args.samples
     else:
         sample_dir = "samples"
 
+    return_value = [base_track, sample_dir]
+    return return_value
+
 
 # Actually put the samples over the base track
-def overlay():
-    # Define our variables
+def overlay(parsed_values):
+
+    base_track = parsed_values[0]
+    sample_dir = parsed_values[1]
     output = base_track
     break_length = 0
     not_done = False
@@ -56,13 +61,13 @@ def overlay():
         overlay_sound_file = random.choice(os.listdir(sample_dir))
         # Parse it based on its codec
         if extension(overlay_sound_file) == ".wav":
-            overlay_sound = pydub.AudioSegment.from_wav(str(sample_dir) + '/'
-                                                        + overlay_sound_file)
+            overlay_sound = pydub.AudioSegment.from_wav(os.path.join(str(
+                sample_dir), overlay_sound_file))
         else:
-            overlay_sound = pydub.AudioSegment.from_mp3(str(sample_dir) + '/'
-                                                        + overlay_sound_file)
+            overlay_sound = pydub.AudioSegment.from_mp3(os.path.join(str(
+                sample_dir), overlay_sound_file))
 
-        # Actually put it over the track
+        # Put it over the track
         output = output.overlay(overlay_sound, position=break_length)
 
         # Pick out a length from 1.5 - 6 seconds to wait
@@ -81,5 +86,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     inputfile = args.inputfile
     outputfile = args.outputfile
-    parse()
-    overlay()
+    overlay(parse())
