@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-import pydub
+try:
+    import pydub
+except ImportError:
+    print "You need pydub to run this, it can be found at http://pydub.com/"
 import random
 import argparse
 import os
