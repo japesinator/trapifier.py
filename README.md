@@ -13,7 +13,7 @@ Trapified: https://soundcloud.com/japesinator/trapified  <- Temporarily taken do
 Requirements
 ------------
 
-This program uses python, so make sure you have that installed.  Pretty much any version should work.  It also uses [pydub](http://pydub.com/) for most of the audio processing.  `pip install pydub` works, and so does cloning the git repository.
+This program uses python, so make sure you have that installed.  Pretty much any version should work.  It also uses [pydub](http://pydub.com/) for most of the audio processing.  `pip install pydub` works, and so does cloning the git repository. It also requires [ffmpeg](https://www.ffmpeg.org/)
 
 I don't think this will work on Windows.  I do not actually have a Windows box to test on at this moment.  If you can confirm whether or not it works, please let me know.  If you can fork the repo and make it work for Windows, that would be really cool.
 
